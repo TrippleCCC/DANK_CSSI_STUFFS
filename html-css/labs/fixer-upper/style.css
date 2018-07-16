@@ -20,19 +20,31 @@ body {
 
 #header {
   color: white;
-  background-color: #4a75e6;
+  background-color: #4A75E6;
   font-size: 20px;
   height: 200px;
   margin: 0px;
   padding-top: 3%;
   text-align: center;
   width: 100%;
+  font-family: 'Bungee Shade', cursive;
 }
 
 #links {
   background-color: #Febc1f;
   height: 50px;
   text-align: center;
+  border: 2px dotted red;
+}
+
+#info {
+  background-color: #08AF22;
+  font-size: 25px;
+}
+
+#slogan {
+  font-style: italic;
+
 }
 
 .link {
@@ -42,4 +54,17 @@ body {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 2%;
+}
+
+.images {
+  text-align: center;
+  border-radius: 1000px;
+}
+
+.display {
+  text-align: center;
+
+}
+.schoolImages {
+  text-align: center;
 }
