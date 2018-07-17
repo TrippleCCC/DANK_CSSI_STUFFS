@@ -61,10 +61,13 @@ body {
   border-radius: 1000px;
 }
 
-.display {
-  text-align: center;
-
+.displayContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.schoolImages {
+.schoolImagesContainer {
   text-align: center;
+  flex-wrap: wrap;
+
 }
