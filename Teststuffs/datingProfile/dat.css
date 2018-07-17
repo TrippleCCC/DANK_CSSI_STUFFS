@@ -1,0 +1,46 @@
+.siteHeader h1 {
+  text-align: center;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 80px;
+}
+
+
+
+.ProfileHeader {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: blue;
+  border-radius: 20px;
+  border: 10px dotted black;
+}
+
+
+.profilePhoto {
+  border: 10px solid black;
+  border-radius: 1000px;
+  padding:
+}
+
+.ProfileHeader li {
+  font-size: 30px;
+  font-family: sans-serif;
+
+}
+
+.matches {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.matches h6 {
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+}
+
+.images h4{
+  font-family: sans-serif;
+}
