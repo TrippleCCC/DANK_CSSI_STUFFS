@@ -25,7 +25,7 @@
 
 .container {
   display: grid;
-  grid-gap: 25px;
+  grid-gap: 10px;
   grid-template-columns: 100px 300px;
   margin: 25px;
 }
@@ -43,6 +43,11 @@ body {
   width: 350px;
 }
 
+#responceBoxText {
+  text-align: center;
+  padding-top: 125px;
+}
+
 #red {
   background-color: red;
 }
@@ -53,4 +58,8 @@ body {
 
 #green {
   background-color: green;
+}
+
+#clear {
+  background-color: black;
 }

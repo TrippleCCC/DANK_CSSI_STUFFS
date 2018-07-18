@@ -11,11 +11,48 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+document.addEventListener('DOMContentLoaded', () => {
+  // Use querySelector to store the div in a variable.
+  let redButton = document.querySelector('#red');
+  let greenButton = document.querySelector('#green');
+  let blueButton = document.querySelector('#blue');
+  let box = document.querySelector('#responseBox');
+  let text = document.querySelector('#responceBoxText')
+  let clearButton = document.querySelector('#clear')
 
-// Use querySelector to store the div in a variable.
-let redButton = document.querySelector('#red');
+  // Use addEventListener to respond to a click event.
+  redButton.addEventListener('click', e => {
+    console.log("You clicked the red button!");
+    box.style.backgroundColor = 'red'
+    text.innerText += " Red"
+  })
 
-// Use addEventListener to respond to a click event.
-redButton.addEventListener('click', e => {
-  console.log("You clicked the red button!");
+  function logText(string)
+  {
+    console.log(string);
+    return
+  }
+
+  greenButton.addEventListener('click', e => {
+    console.log("You clicked the green button!");
+    box.style.backgroundColor = 'green'
+    text.innerText += " Green"
+  })
+
+  blueButton.addEventListener('click', e => {
+    console.log("You clicked the blue button!");
+    box.style.backgroundColor = 'blue'
+    text.innerText += " Blue"
+  })
+
+  clearButton.addEventListener('click', e => {
+    text.innerText = ""
+    box.style.backgroundColor = "white"
+    let n = 1
+    setInterval( () => {
+      n += 1
+      text.innerText = 'Cleared'
+    }, 4000)
+    text.innerText = ""
+  })
 })

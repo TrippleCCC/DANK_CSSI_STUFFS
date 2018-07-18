@@ -40,7 +40,7 @@ function greet(name1="Billy", name2=null)
 
 greet("Dude")
 
-
+/*
 const multiplyBy3 = (x) => x * 3
 
 let n = 0
@@ -48,3 +48,14 @@ setInterval(() => {
   n += 1;
   console.log(n);
 }, 1000)
+
+*/
+function eventHandler ()
+{
+  console.log("Hello World")
+  likeButton.innerText = "Liked!"
+}
+
+
+let likeButton = document.querySelector('.likeButton')
+likeButton.addEventListener('click', )
