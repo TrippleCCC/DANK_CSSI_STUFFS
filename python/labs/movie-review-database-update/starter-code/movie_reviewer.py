@@ -14,6 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+
+
 inside_movie = {
     "title": "Inside Out",
     "id": "tt2096673",
@@ -29,3 +32,15 @@ inside_movie = {
 # Write your code below to update the information in accordance with its
 # IMDB page: http://www.imdb.com/title/tt2096673/
 
+inside_movie["year_released"] = 2015
+inside_movie["score"] = 95
+inside_movie["out_of"] = 8.2
+inside_movie["reviews"] = 489395
+
+del inside_movie["out_of"]
+
+inside_movie["genre"] = "Animation, Adventure, Comedy"
+
+
+
+print(inside_movie)
