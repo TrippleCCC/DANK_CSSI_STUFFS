@@ -44,6 +44,19 @@ def my_function():
 my_function()
 
 def fizzBuzz(num):
+    """Prints out "Fizz", "Buzz", or "FizzBuzz"
+    depending on a numbers diviibility by 5 or 3
+
+    Args:
+        num: (int) Number that will be checked
+    Returns:
+        "Fizz" in the number is divisible by only 3,
+        "Buzz" if the number is divisible by only 5,
+        or "FizzBuzz" if the number is divisible by
+        3 and 5.
+
+    """
+
     if(num % 3 == 0 and num % 5 == 0):
         print("FizzBuzz")
     elif(num % 3 == 0):
