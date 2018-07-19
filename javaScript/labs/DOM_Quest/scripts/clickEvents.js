@@ -13,3 +13,29 @@
 // limitations under the License.
 
 console.log("Running Click Events Script");
+
+const box1 = document.querySelector("#box1")
+const box2 = document.querySelector("#box2")
+const box3 = document.querySelector("#box3")
+
+function changeColor(event){
+  if(event.target.id === "box1")
+  {
+    box2.style.color = box1.style.color
+    box3.style.color = box1.style.color
+  }
+  else if(event.target.id === "box2")
+  {
+    box1.style.color = box2.style.color
+    box3.style.color = box2.style.color
+  }
+  else if(event.target.id === "box3")
+  {
+    box1.style.color = box3.style.color
+    box2.style.color = box3.style.color
+  }
+}
+
+box1.addEventListener('click', function(){changeColor(event)})
+box2.addEventListener('click', changeColor)
+box3.addEventListener('click', changeColor)

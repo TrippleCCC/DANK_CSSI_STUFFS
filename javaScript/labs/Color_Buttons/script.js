@@ -33,6 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return
   }
 
+  function clearedF()
+  {
+    text.style.color = 'black'
+    text.innerText = "Cleared!"
+  }
+
   greenButton.addEventListener('click', e => {
     console.log("You clicked the green button!");
     box.style.backgroundColor = 'green'
@@ -47,12 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   clearButton.addEventListener('click', e => {
     text.innerText = ""
-    box.style.backgroundColor = "white"
-    let n = 1
-    setInterval( () => {
-      n += 1
-      text.innerText = 'Cleared'
-    }, 4000)
+    box.style.backgroundColor = null
+    clearedF()
+    setInterval(donothing, 4000)
     text.innerText = ""
+
   })
 })
