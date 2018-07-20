@@ -13,6 +13,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import time
+
 
 def read_process_data():
     with open('third_party/jane-eyre.txt') as f:
@@ -31,12 +33,39 @@ def get_stop_words():
         return content.split(' ')
 
 def get_highest_words(counts_dictionary, count):
+    print("The top {x} word(s) is/are...".format(x = count))
     highest = sorted(counts_dictionary.items(), key=lambda x:x[1])[::-1][:count]
     for word in highest:
         print("%s: %s" % (word[0], word[1]))
 
+def remove_empty_strings(word_lst):
+    word_lst.sort()
+    while(word_lst[0] == ""):
+        word_lst.pop(0)
 
 content = read_process_data()
 
-# Write your solution below!
 
+# Write your solution below!
+word_count = {}
+
+temp = time.time()
+words = content.split(" ")
+print("The content split took {t}".format(t = time.time() - temp))
+
+
+temp = time.time()
+remove_empty_strings(words)
+print("The remove_empty_strings funtion took {t}".format(t = time.time() - temp))
+
+
+temp = time.time()
+for word in words:
+    if(word  not in word_count):
+        word_count[word] = 1
+    else:
+        word_count[word] = word_count[word] + 1
+
+print("The tally took {t}".format(t = time.time() - temp))
+
+get_highest_words(word_count, 15)
