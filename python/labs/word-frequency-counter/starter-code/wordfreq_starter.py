@@ -48,6 +48,7 @@ content = read_process_data()
 
 # Write your solution below!
 word_count = {}
+stop_words = get_stop_words()
 
 temp = time.time()
 words = content.split(" ")
@@ -61,7 +62,7 @@ print("The remove_empty_strings funtion took {t}".format(t = time.time() - temp)
 
 temp = time.time()
 for word in words:
-    if(word  not in word_count):
+    if(word not in word_count and word not in stop_words):
         word_count[word] = 1
     else:
         word_count[word] = word_count[word] + 1
