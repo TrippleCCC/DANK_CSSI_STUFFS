@@ -33,13 +33,18 @@
 import webapp2
 import os
 import random
+import jinja2
+
+templateLoader = jinja2.FileSystemLoader(searchpath='./')
+templateEnv = jinja2.Environment(loader=templateLoader)
 
 
 def get_fortune():
     #add a list of fortunes to the empty fortune_list array
-    fortune_list=['fortune1', 'fortune2']
+    fortune_list=['You will aquire lots of money.',
+        'You will not aquire lots of money.']
     #use the random library to return a random element from the array
-    random_fortune =
+    random_fortune = random.choice(fortune_list)
     return(random_fortune)
 
 
@@ -50,7 +55,8 @@ class FortuneHandler(webapp2.RequestHandler):
     def get(self):
         # In part 2, instead of returning this string,
         # make a function call that returns a random fortune.
-        self.response.write('a response from the FortuneHandler')
+        results_template = templateEnv.get_template('templates/fortune-start.html')
+        self.response.write(results_template.render())
     #add a post method
     #def post(self):
 
@@ -58,10 +64,15 @@ class HelloHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello World. Welcome to the root route of my app')
 
+class GoodbyeHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('goodbye')
+
 #the route mapping
 app = webapp2.WSGIApplication([
     #this line routes the main url ('/')  - also know as
     #the root route - to the Fortune Handler
     ('/', HelloHandler),
-    ('/predict', FortuneHandler) #maps '/predict' to the FortuneHandler
+    ('/predict', FortuneHandler),
+    ('/farewell', GoodbyeHandler) #maps '/predict' to the FortuneHandler
 ], debug=True)

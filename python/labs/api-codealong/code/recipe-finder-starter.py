@@ -35,4 +35,7 @@ api_string = api_string.format(i = ",".join(ingredients), recipe_type = recipe)
 print(api_string)
 
 r = requests.get(api_string)
-print(r.json())
+#pprint.pprint(r.json())
+
+for recipe in r.json()['results']:
+    print(recipe['title'])
