@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link type="stylesheet" href="css/home_css.css">
+  </head>
+  <body>
+    Top Meme Text: {{ first_line }}<br>
+    Bottom Meme Text: {{ second_line }}<br>
+    Meme Type: {{ meme_type }}<br>
+    Meme Url: {{ meme_url }}
+    <br>
+    <h1>This is your generated meme!</h1>
+    <br>
+    <img src="{{ meme_url }}"/>
+    <br>
+    <h3><a href="home">Make Another Meme</a></h3>
+  </body>
+</html>
