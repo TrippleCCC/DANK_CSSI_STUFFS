@@ -33,7 +33,7 @@ class House(ndb.Model):
       name = ndb.StringProperty(required=True)
       mascot = ndb.StringProperty(required=False)
       students = ndb.KeyProperty(Student, repeated=True)
-      
+
 # Many to Many
 class Course(ndb.Model):
       name = ndb.StringProperty()
@@ -43,7 +43,7 @@ class Enrollment(ndb.Model):
       student = ndb.KeyProperty(Student)
       course = ndb.KeyProperty(Course)
 
-#One to Many 
+#One to Many
 #Generally, teachers teach more than one class
 #While this hasn't happened yet at Hogwarts, it's feasible, so we'll make repeated = True
 
@@ -51,13 +51,3 @@ class Teacher(ndb.Model):
     name = ndb.StringProperty(required=True)
     years_experience = ndb.IntegerProperty(default=1)
     classes_taught = ndb.KeyProperty(Course, repeated=True)
-    
-
-
-
-
-
-
-
-
-

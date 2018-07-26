@@ -4,14 +4,11 @@ from google.appengine.ext import ndb
 class Movie(ndb.Model):
     title = ndb.StringProperty(required=True)
     media_type = ndb.StringProperty(required=True, default="movie")
-    runtime = ndb.I(required=False)
+    runtime = ndb.IntegerProperty(required=False)
     rating = ndb.StringProperty(required=False)
 
 
-    def __init__(self, mov_title, runtime, user_rating):
-        self.title = mov_title
-        self.runtime_min = runtime
-        self.rating = user_rating
+
 
 
 class Person(ndb.Model):
@@ -19,7 +16,6 @@ class Person(ndb.Model):
     lname = ndb.StringProperty(required=False)
     occupation = ndb.StringProperty(required=False)
     age = ndb.IntegerProperty(required=True, default=15)
-    pic = ndb.ImageProperty(required=False, default="pic/pepe.png")
     skills = [] #THings that are in here are stringProperties
     connections = []
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+      .title {
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1 class='title'>Create Person</h1>
+    <form method='POST' action='/create'>
+      First Name:
+      <input type='text' name='first_name'><br>
+      Last Name:
+      <input type='text' name='last_name'><br>
+      Occupation:
+      <input type='text' name='occupation'><br>
+      Age: <input type='number' name='age'><br>
+      <input type='submit' value='create person'>
+    </form><br>
+
+    <form method="POST" action='/delete'>
+      {% for obj in people %}
+      <input type='submit' value='X'>
+      <input type="hidden" name='person_id' value="{{obj.key.id()}}">
+      {{ obj.fname }} {{ obj.lname }}<br>
+      {% endfor %}
+    </form>
+  </body>
+</html>

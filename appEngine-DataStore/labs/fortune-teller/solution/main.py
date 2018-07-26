@@ -34,8 +34,10 @@ import webapp2
 import os
 import jinja2
 import random
-from models import Movie
+import logging
+from models import Person, Movie
 
+people = []
 
 def get_fortune():
     fortune_list=['Tomorrow, you will meet a life-changing new friend.',
@@ -60,6 +62,7 @@ class FortuneHandler(webapp2.RequestHandler):
         start_template=jinja_current_directory.get_template("templates/fortune_welcome.html")
         self.response.write(start_template.render())
 
+
     def post(self):
         random_fortune = get_fortune()
         astro_sign = self.request.get('user_astrological_sign')
@@ -68,16 +71,35 @@ class FortuneHandler(webapp2.RequestHandler):
         #astro_sign = request.form.get('user_astrological_sign')
         self.response.write(end_template.render(my_dict))
 
+
 class DataDemoHandler(webapp2.RequestHandler):
     def get(self):
-        return
+        qry = Person.query().fetch()
+        temp_dict = {'people':qry}
+        template = jinja_current_directory.get_template('templates/create.html')
+        self.response.write(template.render(temp_dict))
 
     def post(self):
-        title = self.request.get('movie_title')
-        runtime = int(self.request.get('movie_runtime'))
-        rating = float(self.request.get('movie_rating'))
-        my_movie = Movie(title=title, runtime_mins=runtime, rating=rating)
+        name = self.request.get('first_name')
+        lname = self.request.get('last_name')
+        occu = self.request.get('occupation')
+        age = int(self.request.get('age'))
+        test_person = Person(fname=name, lname=lname, occupation=occu, age=age)
+        test_person.put()
+        template = jinja_current_directory.get_template('templates/create.html')
+        self.response.write(template.render())
+
+
+class DataDeleteHandler(webapp2.RequestHandler):
+    def post(self):
+        person_id = self.request.get('person_id')
+        person_to_delete = Person.get_by_id(int(person_id))
+        person_to_delete.key.delete()
+
+
 
 app = webapp2.WSGIApplication([
-    ('/', FortuneHandler)
+    ('/', FortuneHandler),
+    ('/create', DataDemoHandler),
+    ('/delete', DataDeleteHandler)
 ], debug=True)
