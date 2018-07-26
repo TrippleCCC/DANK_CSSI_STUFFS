@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Kumar+One+Outline" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+    <link type='text/css' rel='stylesheet' href='/css/style.css'>
+  </head>
+  <body class='body'>
+    <h1 class="siteHeader">Meme Generator</h1>
+    <br>
+    <h1 id='endMessage'>This is your generated meme!</h1>
+    <br>
+    <div class='exampleContainer'>
+      <img src="{{ meme_url }}"/>
+    </div>
+    <br>
+      <h3 id='return'><a  href="home">Make Another Meme</a></h3>
+    <br>
+    <div class='info'>
+      Top Meme Text: {{ first_line }}<br>
+      Bottom Meme Text: {{ second_line }}<br>
+      Meme Type: {{ meme_type }}<br>
+      Meme Url: {{ meme_url }}<br>
+      This meme was made possible by the imgflip API, which can be found <a href='https://api.imgflip.com/'>here<a>,<br>
+
+    </div>
+  </body>
+</html>

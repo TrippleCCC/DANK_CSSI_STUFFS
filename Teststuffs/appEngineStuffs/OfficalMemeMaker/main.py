@@ -87,7 +87,7 @@ def makeMeme(top, bot, meme_t):
     #
     # for obj in json_dict1['data']['memes']:
     #     picIds.append(int(obj['id']))
-    # 
+    #
     # randomMemeID = random.choice(picIds)
 
     meme_url = api_string2.format(
@@ -101,8 +101,6 @@ def makeMeme(top, bot, meme_t):
 
 
 class HomePage(webapp2.RequestHandler):
-
-
     def get(self):
         template = templateEnv.get_template("templates/home.html")
 
@@ -118,17 +116,8 @@ class HomePage(webapp2.RequestHandler):
         url = makeMeme(str(line1), str(line2),memeType)
         meme_dict = {"first_line":line1,"second_line":line2,
             "meme_type":memeType, "meme_url":url}
-
-
         template = templateEnv.get_template('templates/result.html')
         self.response.write(template.render(meme_dict))
 
-class recipeBrowser(webapp2.RequestHandler):
-    def get(self):
-        recipe = {'ingredients':['cottage chese','pinapple'],
-            'cuisine':"nixonian"}
-        template = templateEnv.get_template("templates/recipieBrowser.html")
-        self.response.write(template.render(recipe))
-
-app = webapp2.WSGIApplication([("/home",HomePage),('/recipeBrowser',recipeBrowser)],
+app = webapp2.WSGIApplication([("/home",HomePage)],
  debug=True)
