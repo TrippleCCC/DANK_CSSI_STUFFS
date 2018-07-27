@@ -3,5 +3,10 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /css
+  script: templates/css
+- url: /js
+  script: templates/scripts
+
 - url: /.*
   script: main.app
