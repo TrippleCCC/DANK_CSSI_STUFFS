@@ -9,11 +9,37 @@
   <body>
     <script type="text/javascript">
       let type = "WebGL"
-      if(!PIXI.utils.isWebGlSupported()){
+      if(!PIXI.utils.isWebGLSupported()){
         type = 'canvas'
       }
-
       PIXI.utils.sayHello(type)
+      //Create a Pixi Application
+      //There are more properties that can be altered
+      //look at the documentation for PIXI.Application
+      let app = new PIXI.Application({width: 256, height: 256});
+      app.renderer.backgroundColor = 0x061639
+      app.renderer.autoResize = true
+      app.renderer.resize(512,512)
+
+      //The following lines can be used to fill the whole screen
+      // app.renderer.view.style.position = 'absolute'
+      // app.renderer.view.style.display = 'block'
+      // app.renderer.autoResize = true
+      // app.renderer.resize(window.innerWidth, window.innerHeight)
+
+      //add the canvas that Pixi automatically created for you to the HTML document
+      document.body.appendChild(app.view)
+
+      PIXI.loader
+        .add('images/player.png')
+        .load(setup)
+
+      function setup() {
+        let sprite = new PIXI.Sprite(PIXI.loader.resources['images/player.png'].texture)
+        app.stage.addChild(sprite)
+      }
+
+
     </script>
   </body>
 </html>
