@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-
+/*
 .box{
   height: 100px;
   width: 100px;
   background-color: blue;
   margin: 10px;
 }
-
+*/
 .active{
   background-color: yellow;
 }
@@ -33,15 +33,30 @@
 }
 #box1{
   background-color: red;
+  height: 100px;
+  width: 100px;
+
+  margin: 10px;
 }
 #box2{
   background-color: pink;
+  height: 100px;
+  width: 100px;
+
+  margin: 10px;
 }
 #box3{
   background-color: orange;
+  height: 100px;
+  width: 100px;
+
+  margin: 10px;
 }
 #box6{
   background-color: purple;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
 }
 
 .rectangle{

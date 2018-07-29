@@ -50,12 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const floatingBox = document.querySelector(".floatingBox");
   let boxTop = 100;
   let boxLeft = 100;
-  floatingBox.addEventListener("keydown", (event) => {
+  floatingBox.addEventListener("keydown", () => {
     const key = event.key;
 
     if(key === "ArrowDown")
     {
       boxTop += 5;
+      console.print(key)
     }
     else if(key === "ArrowUp")
     {
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     floatingBox.style.left = boxLeft + 'px';
     console.log(event);
   })
-}) 
+})
 
 function makeGreetingMessage(name1,name2=null)
 {
